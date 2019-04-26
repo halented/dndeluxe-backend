@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
-    skip_before_action :authorzed, only: [:create]
+    skip_before_action :authorized, only: [:create]    
 
-    def new
-        user = User.find_or_create_by(username: params[:username])
-        render json: user
+    def profile
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
-    def show
-        user = User.find_or_create_by(username: params[:username])
-        render json: user
+    def index
+        @users = User.all
     end
-
+    
     def create
         @user = User.create(user_params)
         if @user.valid?
@@ -19,6 +17,11 @@ class UsersController < ApplicationController
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
         end
+    end
+
+    def show
+        user = User.find(username: params[:username])
+        render json: user
     end
  
   private

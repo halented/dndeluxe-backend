@@ -1,6 +1,10 @@
 class CharactersController < ApplicationController
 
-    def new 
+    def create 
         #newCharacter
     end
+    def index
+        @characters = Character.all
+    end
+    
 end

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    def new
+    def create
         #newGame(something happens in the backend, surely)
     end
 end

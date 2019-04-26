@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-    def new
+    def create
         #make a neote
     end
 end
