@@ -7,6 +7,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.string :image
       t.text   :details
       t.integer :level
+      t.string :class
       t.integer :strength
       t.integer :dexterity
       t.integer :constitution
