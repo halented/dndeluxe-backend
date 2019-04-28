@@ -23,6 +23,12 @@ class UsersController < ApplicationController
         user = User.find(username: params[:username])
         render json: user
     end
+
+    def update
+        byebug
+        user = User.find(username: params[:username])
+        user.update(user)
+    end
  
   private
   def user_params
