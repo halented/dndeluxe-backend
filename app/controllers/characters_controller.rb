@@ -1,8 +1,8 @@
 class CharactersController < ApplicationController
 
     def create 
-        puts "HERE ARE THE CHARACTER PARAMS I'M BEING AS LOUD AS POSSIBLE SO YOU CAN SEE ME: #{character_params}"
         byebug
+        puts "HERE ARE THE CHARACTER PARAMS I'M BEING AS LOUD AS POSSIBLE SO YOU CAN SEE ME: #{character_params}"
         @character = Character.create(character_params)
         if @character.valid?
             render json: @character
@@ -16,7 +16,6 @@ class CharactersController < ApplicationController
         puts params
         puts "HOHOASDHOFOASDFJAOSDJFLAJSDFIARFOIDASFLVSNDFJNVSOEIRGJSETG"
         puts character_params
-        byebug
         character = Character.new()
         render json: character
     end
@@ -26,7 +25,9 @@ class CharactersController < ApplicationController
     end
 
     private
+
     def character_params
         params.require(:character).permit(:name, :race, :alignment, :image, :details, :level, :class, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :initiative, :armor_class, :speed, :hit_points, :inspiration)
     end
+
 end

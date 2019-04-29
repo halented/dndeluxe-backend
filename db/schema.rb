@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_000846) do
     t.string "image"
     t.text "details"
     t.integer "level"
+    t.string "class"
     t.integer "strength"
     t.integer "dexterity"
     t.integer "constitution"
