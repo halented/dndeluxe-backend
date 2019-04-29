@@ -1,13 +1,14 @@
 class CreateCharacters < ActiveRecord::Migration[5.2]
   def change
     create_table :characters do |t|
+      t.belongs_to :user
       t.string :name
       t.string :race
       t.string :alignment
       t.string :image
       t.text   :details
       t.integer :level
-      t.string :class
+      t.string :character_class
       t.integer :strength
       t.integer :dexterity
       t.integer :constitution

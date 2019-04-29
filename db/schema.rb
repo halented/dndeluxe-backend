@@ -16,13 +16,14 @@ ActiveRecord::Schema.define(version: 2019_04_23_000846) do
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name"
     t.string "race"
     t.string "alignment"
     t.string "image"
     t.text "details"
     t.integer "level"
-    t.string "class"
+    t.string "character_class"
     t.integer "strength"
     t.integer "dexterity"
     t.integer "constitution"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_000846) do
     t.boolean "inspiration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|

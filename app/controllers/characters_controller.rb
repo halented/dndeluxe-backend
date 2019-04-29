@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 
     def create 
-        byebug
+        # byebug
         puts "HERE ARE THE CHARACTER PARAMS I'M BEING AS LOUD AS POSSIBLE SO YOU CAN SEE ME: #{character_params}"
         @character = Character.create(character_params)
         if @character.valid?
@@ -27,7 +27,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :race, :alignment, :image, :details, :level, :class, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :initiative, :armor_class, :speed, :hit_points, :inspiration)
+        params.require(:character).permit(:name, :race, :alignment, :image, :details, :level, :character_class, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :initiative, :armor_class, :speed, :hit_points, :inspiration, :user_id)
     end
 
 end
