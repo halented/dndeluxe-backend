@@ -26,8 +26,9 @@ class UsersController < ApplicationController
 
     def update
         byebug
-        user = User.find(username: params[:username])
+        user = User.find(params[:id])
         user.update(user)
+        render json: user
     end
  
   private

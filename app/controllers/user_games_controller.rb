@@ -1,16 +1,16 @@
 class UserGamesController < ApplicationController
     def create
-       @user_game = UserGames.create(user_game_params)
+       @user_game = UserGame.create(user_game_params)
        if @user_game.valid?
-       render json: @user_game
+       render json: {game: @user_game}
        else 
         render json: {error: "user game association could not be created"}, status: :not_acceptable
        end
     end
 
     def index
-        @user_games = UserGames.all
-        render json: @user_games
+        @user_games = UserGame.all
+        render :json => @user_games, include: '**'
     end
 
     private
