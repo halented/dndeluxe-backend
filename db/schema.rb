@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_000846) do
 
   create_table "characters", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "game_id"
     t.string "name"
     t.string "race"
     t.string "alignment"
@@ -37,16 +38,16 @@ ActiveRecord::Schema.define(version: 2019_04_23_000846) do
     t.boolean "inspiration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_characters_on_game_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "location"
     t.string "group_name"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "notes", force: :cascade do |t|
