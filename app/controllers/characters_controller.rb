@@ -1,8 +1,6 @@
 class CharactersController < ApplicationController
 
     def create 
-        # byebug
-        puts "HERE ARE THE CHARACTER PARAMS I'M BEING AS LOUD AS POSSIBLE SO YOU CAN SEE ME: #{character_params}"
         @character = Character.create(character_params)
         if @character.valid?
             render json: @character
@@ -12,10 +10,6 @@ class CharactersController < ApplicationController
     end
 
     def new
-        puts "HERE ARE THE PARAMS I'M BEING AS LOUD AS POSSIBLE SO YOU CAN SEE ME:" 
-        puts params
-        puts "HOHOASDHOFOASDFJAOSDJFLAJSDFIARFOIDASFLVSNDFJNVSOEIRGJSETG"
-        puts character_params
         character = Character.new()
         render json: character
     end

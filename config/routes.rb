@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  # resources :notes
-  # resources :games
-  # resources :characters
-  # resources :users
+  resources :user_games
   resources :notes
   resources :games do
     resources :characters
