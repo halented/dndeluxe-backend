@@ -14,6 +14,11 @@ class CharactersController < ApplicationController
         render json: character
     end
 
+    def show
+        character = Character.find(params[:id])
+        render json: character
+    end
+
     def index
         @characters = Character.all
         render json: @characters
