@@ -24,6 +24,12 @@ class CharactersController < ApplicationController
         render json: @characters
     end
 
+    def destroy 
+        character = Character.find(params[:id])
+        character.destroy
+        render json: {success: "character destroyed"}
+    end
+
     private
 
     def character_params
