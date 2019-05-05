@@ -27,7 +27,12 @@ class CharactersController < ApplicationController
     def update
         character = Character.find(params[:id])
         character.update(character_params)
-        render json: character
+        if character.valid?
+            render json: character
+        else 
+            render json: { errors: "invalid cahracter details"}, status: :not_acceptable
+        end
+
     end
 
     def destroy 
