@@ -32,7 +32,6 @@ class CharactersController < ApplicationController
         else 
             render json: { errors: "invalid cahracter details"}, status: :not_acceptable
         end
-
     end
 
     def destroy 
