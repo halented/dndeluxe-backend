@@ -13,6 +13,12 @@ class UserGamesController < ApplicationController
         render :json => @user_games, include: '**'
     end
 
+    def destroy
+        user_game = UserGame.find(user_game_params[id])
+        user_game.destroy
+        render :json {success: "Game removed"}
+    end
+
     private
     def user_game_params
         params.require(:user_game).permit(:user_id, :game_id)
