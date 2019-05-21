@@ -15,8 +15,11 @@ class UserGamesController < ApplicationController
 
     def destroy
         user_game = UserGame.find(params[:id])
-        user_game.destroy
-        render json: {success: "Game removed"}
+        if user_game.destroy
+            render json: {success: "Game removed"}
+        else
+            render json: {error: "network error"}
+        end
     end
 
     private
